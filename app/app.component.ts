@@ -31,8 +31,11 @@ import {MovieService} from "./movie.service";
 export class AppComponent  {
 
   movies: Movie[];
+  movieService: MovieService;
 
-  constructor(private movieService: MovieService) {}
+  constructor(_movieService: MovieService) {
+    movieService = _movieService;
+  }
 
   getMovies(): void{
     this.movieService.getMovies().then(movies => this.movies = movies);
