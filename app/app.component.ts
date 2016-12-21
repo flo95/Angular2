@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Movie} from "./movie";
+import {MovieService} from "./movie.service";
 
 @Component({
   selector: 'my-app',
@@ -31,7 +32,7 @@ export class AppComponent  {
 
   movies: Movie[];
 
-  constructor(private movieService) {}
+  constructor(private movieService: MovieService) {}
 
   getMovies(): void{
     this.movieService.getMovies().then(movies => this.movies = movies);
