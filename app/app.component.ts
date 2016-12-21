@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import {Movie} from "./movie";
 import {MovieService} from "./movie.service";
 
 @Component({
   selector: 'my-app',
+  providers: [MovieService],
   template: `<h1>JavaScript Training</h1>
 
     <table>
