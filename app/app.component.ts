@@ -16,7 +16,7 @@ import {MovieService} from "./movie.service";
       </tr>
       </thead>
       <tbody>
-        <tr *ngfor="let movie of Movies">
+        <tr *ngFor="let movie of Movies">
           <td>{{movie.id}}</td>
           <td>{{movie.title}}</td>
           <td>{{movie.description}}</td>
