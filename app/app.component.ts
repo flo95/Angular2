@@ -1,6 +1,8 @@
 import { Component} from '@angular/core';
 import {Movie} from "./movie";
 import {MovieService} from "./movie.service";
+import {Observable} from "rxjs/Rx";
+
 
 @Component({
   selector: 'my-app',
@@ -17,7 +19,7 @@ import {MovieService} from "./movie.service";
       </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let movie of Movies">
+        <tr *ngFor="let movie of movies">
           <td>{{movie.id}}</td>
           <td>{{movie.title}}</td>
           <td>{{movie.description}}</td>
@@ -31,7 +33,7 @@ import {MovieService} from "./movie.service";
 })
 export class AppComponent  {
 
-  movies: Movie[];
+  movies: Observable<Movie[]>;
   movieService: MovieService;
 
   constructor(_movieService: MovieService) {
@@ -39,7 +41,7 @@ export class AppComponent  {
   }
 
   getMovies(): void{
-    this.movieService.getAllMovies().then(movies => this.movies = movies);
+    this.movies = this.movieService.getAllMovies();
   }
 
   ngOnInit(): void {
