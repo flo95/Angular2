@@ -4,9 +4,16 @@ import {Movie} from "./movie";
 
 @Injectable()
 export class MovieService {
-  getAllMovies(http: Http): Promise<Movie[]> {
+
+  http: Http;
+
+  constructor(http: Http){
+    this.http = http;
+  }
+
+  getAllMovies(): Promise<Movie[]> {
     return Promise.resolve(
-      http.get("http://movie-database.herokuapp.com/movies")
+      this.http.get("http://movie-database.herokuapp.com/movies")
     );
   }
 }

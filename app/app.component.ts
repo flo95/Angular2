@@ -34,11 +34,11 @@ export class AppComponent  {
   movieService: MovieService;
 
   constructor(_movieService: MovieService) {
-    movieService = _movieService;
+    this.movieService = _movieService;
   }
 
   getMovies(): void{
-    this.movieService.getMovies().then(movies => this.movies = movies);
+    this.movieService.getAllMovies().then(movies => this.movies = movies);
   }
 
   ngOnInit(): void {
